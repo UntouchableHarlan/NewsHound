@@ -6,4 +6,4 @@ applications:
   name: NewsHound
   host: NewsHound
   disk_quota: 1024M
-  command: bundle exec rake db:setup && bundle exec rails s -p $PORT
+  command: bundle exec rake db:migrate && bundle exec rails s -p $PORT
