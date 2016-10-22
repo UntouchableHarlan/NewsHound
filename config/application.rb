@@ -21,5 +21,16 @@ module NewsHound
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    config.active_record.primary_key = :uuid
+
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [
+          :get, :post, :delete, :put, :patch, :options, :head
+        ]
+      end
+    end
   end
 end

@@ -1,0 +1,1 @@
+json.partial! "update_items/update_item", update_item: @update_item

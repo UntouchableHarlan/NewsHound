@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @update_item.uid %>
+</p>
+
+<p>
+  <strong>Updatedate:</strong>
+  <%= @update_item.updateDate %>
+</p>
+
+<p>
+  <strong>Titletext:</strong>
+  <%= @update_item.titleText %>
+</p>
+
+<p>
+  <strong>Maintext:</strong>
+  <%= @update_item.mainText %>
+</p>
+
+<p>
+  <strong>Redirectionurl:</strong>
+  <%= @update_item.redirectionUrl %>
+</p>
+
+<%= link_to 'Edit', edit_update_item_path(@update_item) %> |
+<%= link_to 'Back', update_items_path %>
