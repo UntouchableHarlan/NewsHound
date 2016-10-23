@@ -14,3 +14,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener('turbolinks:before-visit', function() {
+    document.getElementById('content').className += 'animated slideOutLeft';
+});
+document.addEventListener('turbolinks:request-start', function() {
+    document.getElementById('content').className += 'animated slideInRight';
+});
+
+$(document).on('turbolinks:load', function(){
+  var hammertime = new Hammer(document.body);
+  hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+  hammertime.on('swipeup', function(ev) {
+  	alert("I've been swiped");
+  });
+})
