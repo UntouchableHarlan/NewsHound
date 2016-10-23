@@ -1,7 +1,7 @@
 class Telemundo
 
-  def self.fetch
-    endpoint = "http://stage-api.nbcuni.com/telemundo/v1/content/article/?limit=5&category=deportes"
+  def self.fetch(category='deportes')
+    endpoint = "http://stage-api.nbcuni.com/telemundo/v1/content/article/"
 
     headers = {
       "api_key" => "3skg7sqckwerht69jufrqjus",
@@ -9,7 +9,7 @@ class Telemundo
 
     params = {
       "limit": 5,
-      "category": "deportes"
+      "category": category
     }
 
     HTTParty.get( endpoint, :query => params, :headers => headers)

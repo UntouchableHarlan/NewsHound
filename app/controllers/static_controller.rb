@@ -3,6 +3,6 @@ class StaticController < ApplicationController
   end
 
   def show
-    ap params[:category]
+    @telemundo = Telemundo.fetch(params[:category])
   end
 end
