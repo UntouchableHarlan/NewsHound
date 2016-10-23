@@ -21,13 +21,13 @@ xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
     xml.ttl 30
-    @update_items.each do |update_item|
+    @mundo.each do |article|
       xml.item do
-        xml.title mundo['title']
-        xml.description mundo['promotional_description']
+        xml.title article['title']
+        xml.description article['promotional_description']
         xml.guid SecureRandom.uuid
-        xml.pubDate mundo['original_pubdate']
-        xml.link update_item_url(update_item)
+        xml.pubDate article['original_pubdate']
+        xml.link request.host
       end
     end
   end

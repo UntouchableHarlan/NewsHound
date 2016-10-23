@@ -1,7 +1,5 @@
 class Telemundo
 
-  require 'httparty'
-
   def self.fetch
     endpoint = "http://stage-api.nbcuni.com/telemundo/v1/content/article/?limit=5&category=deportes"
 
