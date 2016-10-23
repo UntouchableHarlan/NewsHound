@@ -12,7 +12,7 @@
   <div class="carousel-inner" role="listbox">
     <% @telemundo.each_with_index do |article, index| %>
       <div class="item <%= 'active' if index === 0 %>">
-        <img src="<%= article['cover_image']['image_styles']['1704']%>">
+        <img src="<%= article['promotional_image']['image_styles']['960']%>">
         <div class="carousel-caption">
           <%= article['title'] %>
         </div>
