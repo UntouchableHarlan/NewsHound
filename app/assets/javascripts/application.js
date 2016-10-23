@@ -16,24 +16,27 @@
 //= require turbolinks
 //= require_tree .
 
-document.addEventListener('turbolinks:before-visit', function() {
-    document.getElementById('content').className += 'animated slideOutLeft';
-});
-document.addEventListener('turbolinks:request-start', function() {
-    document.getElementById('content').className += 'animated slideInRight';
-});
-
 $(document).on('turbolinks:load', function(){
-  // var hammertime = new Hammer(document.body);
-  // hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-  // hammertime.on('swipeup', function(ev) {
-  // 	alert("I've been swiped");
-  // });
 
-  $('#ShowArticle').on('click', function(event){
-    event.preventDefault();
-    console.log(event)
-    $('body').find("#" + event.target.dataset['id']).show();
-  });
+    $('body').on('click', '#ShowArticle' function (evt) {
+      event.preventDefault()
+      ArticleID = $(event.target).data('id')
+      window.currentArticleID = ArticleID
+      $("#" + ArticleID).show()
+    })
 
+    $('#article-carousel').on('slide.bs.carousel', function (evt) {
+      console.log(evt)
+      console.log(window.currentArticleID)
+      ArticleID = $(event.relatedTarget).find('#ShowArticle').data('id')
+
+      $('#' + ArticleID).hide(window.currentArticleID)
+
+      $('#ShowArticle').on('click', function (evt) {
+        event.preventDefault()
+        ArticleID = $(event.target).data('id')
+        window.currentArticleID = ArticleID
+        $("#" + ArticleID).show()
+      })
+    })
 })

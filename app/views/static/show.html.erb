@@ -1,22 +1,18 @@
 
 
-<div id="carousel-example-generic" class="carousel slide">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
-
+<div id="article-carousel" class="carousel slide">
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <% @telemundo.each_with_index do |article, index| %>
       <div class="item <%= 'active' if index === 0 %>">
-        <img src="<%= article['promotional_image']['image_styles']['960']%>">
+        <img src="<%= article['promotional_image']['image_styles']['960']%>" class="img-responsive">
         <div class="carousel-caption">
           <%= article['title'] %>
           <p>
-            <a id='ShowArticle' data-id="<%= article['nid'] %>" href="#"> Read More </a>
+            <a id='ShowArticle'
+                data-turbolinks="false"
+                data-id="<%= article['nid'] %>"
+                href="#<%= article['nid'] %>"> Read More </a>
           </p>
         </div>
       </div>
@@ -24,11 +20,11 @@
   </div>
 
   <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+  <a class="left carousel-control" href="#article-carousel" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+  <a class="right carousel-control" href="#article-carousel" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -39,7 +35,7 @@
     <div id="<%= article['nid'] %>" style="display: none">
         <div class="row">
           <div class="col-xs-10 col-md-6 center-block" style="float: none">
-            <article class="">
+            <article class="article-body">
               <%= raw article['body'] %>
             </article>
           </div>
