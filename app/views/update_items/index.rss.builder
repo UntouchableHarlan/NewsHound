@@ -25,9 +25,9 @@ xml.rss :version => "2.0" do
       xml.item do
         xml.title article['title']
         xml.description article['promotional_description']
-        xml.guid SecureRandom.uuid
-        xml.pubDate article['original_pubdate']
-        xml.link request.host
+        xml.guid "urn:uuid:" + SecureRandom.uuid
+        xml.pubDate DateTime.strptime(article['datetime'],'%s').as_json
+        xml.link update_items_url
       end
     end
   end
