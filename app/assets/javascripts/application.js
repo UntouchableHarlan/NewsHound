@@ -18,25 +18,14 @@
 
 $(document).on('turbolinks:load', function(){
 
-    $('body').on('click', '#ShowArticle' function (evt) {
+    $('body').on('click', '#ShowArticle', function (evt) {
       event.preventDefault()
       ArticleID = $(event.target).data('id')
       window.currentArticleID = ArticleID
       $("#" + ArticleID).show()
     })
 
-    $('#article-carousel').on('slide.bs.carousel', function (evt) {
-      console.log(evt)
-      console.log(window.currentArticleID)
-      ArticleID = $(event.relatedTarget).find('#ShowArticle').data('id')
-
-      $('#' + ArticleID).hide(window.currentArticleID)
-
-      $('#ShowArticle').on('click', function (evt) {
-        event.preventDefault()
-        ArticleID = $(event.target).data('id')
-        window.currentArticleID = ArticleID
-        $("#" + ArticleID).show()
-      })
+    $('.carousel-control').on('click', function (evt) {
+      $('#' + window.currentArticleID).hide()
     })
 })
