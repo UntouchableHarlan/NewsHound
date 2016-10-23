@@ -4,6 +4,8 @@ class UpdateItemsController < ApplicationController
   # GET /update_items
   # GET /update_items.json
   def index
+    @mundo = Telemundo.fetch
+
     @update_items = UpdateItem.all
   end
 
