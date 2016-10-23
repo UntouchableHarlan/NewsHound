@@ -15,6 +15,9 @@
         <img src="<%= article['promotional_image']['image_styles']['960']%>">
         <div class="carousel-caption">
           <%= article['title'] %>
+          <p>
+            <a id='ShowArticle' data-id="<%= article['nid'] %>" href="#"> Read More </a>
+          </p>
         </div>
       </div>
     <% end %>
@@ -30,3 +33,17 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+  <% @telemundo.each_with_index do |article, index| %>
+
+    <div id="<%= article['nid'] %>" style="display: none">
+        <div class="row">
+          <div class="col-xs-10 col-md-6 center-block" style="float: none">
+            <article class="">
+              <%= raw article['body'] %>
+            </article>
+          </div>
+        </div>
+    </div>
+
+  <% end %>

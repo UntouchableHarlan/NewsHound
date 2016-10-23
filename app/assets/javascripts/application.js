@@ -24,9 +24,16 @@ document.addEventListener('turbolinks:request-start', function() {
 });
 
 $(document).on('turbolinks:load', function(){
-  var hammertime = new Hammer(document.body);
-  hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-  hammertime.on('swipeup', function(ev) {
-  	alert("I've been swiped");
+  // var hammertime = new Hammer(document.body);
+  // hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+  // hammertime.on('swipeup', function(ev) {
+  // 	alert("I've been swiped");
+  // });
+
+  $('#ShowArticle').on('click', function(event){
+    event.preventDefault();
+    console.log(event)
+    $('body').find("#" + event.target.dataset['id']).show();
   });
+
 })
