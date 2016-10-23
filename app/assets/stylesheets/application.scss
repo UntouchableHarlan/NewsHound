@@ -1,5 +1,58 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "static";
 
- // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+body {
+  font-family: "Roboto";
+  padding-top: 70px;
+}
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
+.category-container {
+  padding: 0;
+}
+.category-item {
+  list-style: none;
+  font-size: 3.75em;
+  padding-top: 15px;
+  padding-left: 0;
+  font-weight: bold;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  &:hover{
+    font-size: 5.5em;
+  }
+}
+
+.story-header {
+  // background: url('soccer.png');
+	background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+	width: 100vw;
+	height: 100vh;
+  margin-top: -20px;
+  overflow: hidden;
+}
+.story-title {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  padding: 30px;
+  font-size: 4em;
+  text-transform: capitalize;
+  line-height: 64px;
+}
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 108vh;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to top,#000, rgba(255,255, 255, 0));
+}
+
+.navbar-default {
+  border: none;
+}
